@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 googletrans = "==3.1.0a0"
 pandas = "*"
+jupyterlab = "*"
 
 [requires]
 python_version = "3.7"
