@@ -1,0 +1,3 @@
+[submodule "scraper/macau-data-scraper"]
+	path = scraper/macau-data-scraper
+	url = https://gitee.com/noshidanha/macau-data-scraper.git
