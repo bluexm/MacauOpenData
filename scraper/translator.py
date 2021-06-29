@@ -4,8 +4,11 @@
 # Imports
 import csv
 import json
-
+from os import chdir
 # Getting the dataframe
+
+chdir('scraper')
+
 data = list(csv.reader(open("dataframe.csv")))
 
 # Getting the translations
