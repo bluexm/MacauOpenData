@@ -11,8 +11,8 @@ The fields of each dataset are read from the file dataframe_translation.csv
 The results are saved in 2 files graphEdges.csv and graphNodes.csv to be used in Gephi 
 """
 
-chdir('scraper')
-dfmeta=pd.read_csv('dataframe_translation.csv',header = 0)
+chdir('analysis')
+dfmeta=pd.read_csv('../resources/dataframe_t.csv',header = 0)
 fname_edges= '../analysis/graphEdges.csv'
 fname_nodes= '../analysis/graphNodes.csv'
 dfedges = pd.DataFrame(columns= ['Source','Target','Type','Id','Label',	'timeset','Weight'])
