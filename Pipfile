@@ -9,6 +9,9 @@ verify_ssl = true
 googletrans = "==3.1.0a0"
 pandas = "*"
 jupyterlab = "*"
+tabula-py = "*"
+camelot-py = {extras = ["cv"], version = "*"}
+googlemaps = "*"
 
 [requires]
 python_version = "3.7"
