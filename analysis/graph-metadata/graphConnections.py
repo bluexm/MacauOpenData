@@ -42,7 +42,9 @@ for i in range(len(lnodes)-1): # look at common nodes (columns names)
         if w>0:
             #print("{} edges".format(w))
             #print(lnodes[j]['cols'])
-            dfedges = dfedges.append({'Source':lnodes[i]['id'],'Target':lnodes[j]['id'],'Type':'Directed','Id':len(dfedges)+1,'Label':lnodes[i]['name']+lnodes[j]['name'],'timeset':'','Weight':1}, ignore_index=True)
+            dfedges = dfedges.append({'Source':lnodes[i]['id'],'Target':lnodes[j]['id'],
+                'Type':'Directed','Id':len(dfedges)+1,'Label':lnodes[i]['name']+lnodes[j]['name'],
+                'timeset':'','Weight':1}, ignore_index=True)
 dfedges.to_csv(fname_edges,index=False, quotechar='"', quoting=QUOTE_NONNUMERIC) 
 
 print("finished, found {} nodes and {} edges".format(len(dfnodes),len(dfedges)))

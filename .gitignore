@@ -8,6 +8,10 @@ __pycache__/
 
 #VS code
 *.DS_Store*
+.vscode/
+
+# private API keys 
+scraper/pdfscraper/apikey*
 
 # Distribution / packaging
 .Python
