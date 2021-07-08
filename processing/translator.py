@@ -21,7 +21,32 @@ translation_data = dict(json.load(open(fname_translation)))
 # Translation mapping function
 def translate_from_dict(element, translation_dict):
     try:
-        return translation_dict[element]
+        debug = False
+
+        if element == "['旅遊快訊 (繁體中文)', '旅遊快訊 (英文)', '旅遊快訊 (簡體中文)']":
+            debug = True
+
+        if "[" in element or "]" in element: # is a list
+
+            # Need to get individual items in list
+            elem_cpy = element
+
+            # Removing unwanted characters
+            for c in "[]'":
+                elem_cpy = elem_cpy.replace(c, "")
+
+            # Get list of all elements
+            elem_list = elem_cpy.split(",")
+            for e in elem_list:
+                if debug == True:
+                    print(e.strip(" "))
+                    print(translation_dict[e.strip(" ")])
+                element = element.replace(e.strip(" "), translation_dict[e.strip(" ")])
+            if debug == True:
+                print(element)
+            return element
+        else:
+            return translation_dict[element]
     except:
         return element
 

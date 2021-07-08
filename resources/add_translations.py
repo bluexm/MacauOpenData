@@ -32,17 +32,17 @@ if __name__=="__main__":
                     if elem_r != elem_t:
                         if '[' in elem_r or ']' in elem_r: # is a list
                             print("FOUND LIST")
-                            for c in "[ ]": # Remove unwanted chars
+                            for c in "[]": # Remove unwanted chars
                                 elem_r = elem_r.replace(c, "")
                                 elem_t = elem_t.replace(c, "")
                             raw_list = elem_r.split(",")
                             trans_list = elem_t.split(",")
                             for r, t in zip(raw_list, trans_list):
-                                translation_json[r.replace("'", "")] = t.replace("'", "")
+                                translation_json[r.replace("'", "").strip(" ")] = t.replace("'", "").strip(" ")
                                 print(r.replace("'", '"'), ":", t.replace("'", '"'))
                         else:
                             translation_json[elem_r] = elem_t
-    
+
     # Write into json
-    with open("translation.json", "w", encoding="utf-8") as json_out:
+    with open("translation_t.json", "w", encoding="utf-8") as json_out:
         json.dump(translation_json, json_out, ensure_ascii=False)
