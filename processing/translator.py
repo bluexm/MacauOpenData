@@ -23,11 +23,10 @@ def translate_from_dict(element, translation_dict):
     try:
         debug = False
 
-        if element == "['旅遊快訊 (繁體中文)', '旅遊快訊 (英文)', '旅遊快訊 (簡體中文)']":
+        if element == "['Último Boletim Oficial I Série', '最新第一組《公報》']":
             debug = True
 
         if "[" in element or "]" in element: # is a list
-
             # Need to get individual items in list
             elem_cpy = element
 
@@ -37,13 +36,12 @@ def translate_from_dict(element, translation_dict):
 
             # Get list of all elements
             elem_list = elem_cpy.split(",")
+
             for e in elem_list:
-                if debug == True:
-                    print(e.strip(" "))
-                    print(translation_dict[e.strip(" ")])
-                element = element.replace(e.strip(" "), translation_dict[e.strip(" ")])
-            if debug == True:
-                print(element)
+                try:
+                    element = element.replace(e.strip(" "), translation_dict[e.strip(" ")])
+                except:
+                    continue
             return element
         else:
             return translation_dict[element]
