@@ -7,7 +7,7 @@ import json
 from os import chdir
 # Getting the dataframe
 
-chdir('scraper')
+chdir('scraper/metadata')
 
 data = list(csv.reader(open("dataframe.csv")))
 
